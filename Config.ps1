@@ -22,9 +22,9 @@ $Value = 0
 Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
 
 # 显示隐藏文件
-$Name = "Hidden"
-$Value = 1
-Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
+# $Name = "Hidden"
+# $Value = 1
+# Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
 
 # 显示受保护的操作系统文件
 $Name = "ShowSuperHidden"
