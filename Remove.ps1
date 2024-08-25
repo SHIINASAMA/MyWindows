@@ -9,7 +9,8 @@ winget remove `
     "Microsoft.PowerAutomateDesktop_8wekyb3d8bbwe" `
     "Microsoft.YourPhone_8wekyb3d8bbwe" `
     "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy" `
-    "microsoft.windowscommunicationsapps_8wekyb3d8bbwe"
+    "microsoft.windowscommunicationsapps_8wekyb3d8bbwe" `
+    "微软电脑管家"
 
 git clone https://github.com/ShadowWhisperer/Remove-MS-Edge.git
 # remove edge exclude webview2
