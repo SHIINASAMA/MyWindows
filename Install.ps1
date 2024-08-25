@@ -30,3 +30,6 @@ winget install agalwood.Motrix `
     Microsoft.VisualStudioCode `
     DEVCOM.JetBrainsMonoNerdFont `
     AntibodySoftware.WizTree
+
+git clone https://github.com/microsoft/vcpkg C:/vcpkg
+C:/vcpkg/bootstrap-vcpkg.bat
