@@ -1,5 +1,5 @@
 winget source update
-winget update Microsoft.AppInstaller
+winget upgrade Microsoft.AppInstaller
 winget update --all
 
 winget install agalwood.Motrix `
