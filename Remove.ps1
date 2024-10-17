@@ -10,8 +10,11 @@ winget remove `
     "Microsoft.YourPhone_8wekyb3d8bbwe" `
     "MicrosoftWindows.Client.WebExperience_cw5n1h2txyewy" `
     "microsoft.windowscommunicationsapps_8wekyb3d8bbwe" `
-    "微软电脑管家"
+    "微软电脑管家" "PC Manager" `
+    "Windows Web Experience Pack"
 
-git clone https://github.com/ShadowWhisperer/Remove-MS-Edge.git
+if ((Test-Path -Path "./Remove-MS-Edge") -eq $false) {
+    git clone https://github.com/ShadowWhisperer/Remove-MS-Edge.git
+}
 # remove edge exclude webview2
 ./Remove-MS-Edge/Remove-Edge.exe /e

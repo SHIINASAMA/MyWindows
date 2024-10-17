@@ -1,18 +1,28 @@
-$progressPreference = 'silentlyContinue'
 Write-Information "Downloading WinGet and its dependencies..."
-Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
-Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile Microsoft.VCLibs.x64.14.00.Desktop.appx
-Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile Microsoft.UI.Xaml.2.8.x64.appx
-Add-AppxPackage Microsoft.VCLibs.x64.14.00.Desktop.appx
-Add-AppxPackage Microsoft.UI.Xaml.2.8.x64.appx
+
+if ((Test-Path -Path .\Microsoft.VCLibs.x64.14.00.Desktop.appx -PathType Leaf) -eq $false) {
+    Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+}
 Add-AppxPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+
+if ((Test-Path -Path .\Microsoft.UI.Xaml.2.8.x64.appx -PathType Leaf) -eq $false) {
+    Invoke-WebRequest -Uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -OutFile Microsoft.VCLibs.x64.14.00.Desktop.appx
+}
+Add-AppxPackage Microsoft.VCLibs.x64.14.00.Desktop.appx
+
+if ((Test-Path -Path .\Microsoft.UI.Xaml.2.8.x86.appx -PathType Leaf) -eq $false) {
+    Invoke-WebRequest -Uri https://github.com/microsoft/microsoft-ui-xaml/releases/download/v2.8.6/Microsoft.UI.Xaml.2.8.x64.appx -OutFile Microsoft.UI.Xaml.2.8.x64.appx
+}
+Add-AppxPackage Microsoft.UI.Xaml.2.8.x64.appx
+
+Write-Information "Installing software via WinGet..."
 
 winget source update
 winget upgrade Microsoft.AppInstaller
 winget update --all
 
 winget install `
-   agalwood.Motrix `
+    agalwood.Motrix `
     ClashVergeRev.ClashVergeRev `
     CoreyButler.NVMforWindows `
     7zip.7zip `
@@ -41,5 +51,13 @@ winget install `
     DEVCOM.JetBrainsMonoNerdFont `
     AntibodySoftware.WizTree
 
-git clone https://github.com/microsoft/vcpkg C:/vcpkg
+Write-Information "Installing vcpkg..."
+
+if ((Test-Path C:/vcpkg) -eq $false) {
+    git clone https://github.com/microsoft/vcpkg C:/vcpkg
+}
 & "C:/vcpkg/bootstrap-vcpkg.bat"
+[Environment]::SetEnvironmentVariable('VCPKG_ROOT', 'C:/vcpkg', 'Machine')
+$path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine')
+$path = 'C:/vcpkg;' + $path
+[System.Environment]::SetEnvironmentVariable('Path', $path, 'Machine')

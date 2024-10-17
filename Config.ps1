@@ -4,10 +4,10 @@ Write-Output "`nInvoke-Expression (&starship init powershell)" >> $PROFILE
 $LangList = New-WinUserLanguageList en-US
 $LangList.Add("zh-Hans-CN")
 $LangList.Add("ja-JP")
-Set-WinUserLanguageList $LangList
+Set-WinUserLanguageList -LanguageList $LangList -Force
 
 # 设置资源管理器默认显示此电脑
-$RegistryPath = "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced"
+$RegistryPath = "HKCU:\SOFTWARE\Miscrosoft\Windows\CurrentVersion\Explorer\Advanced"
 $Name = "LaunchTo"
 $Value = 1
 if (Test-Path $RegistryPath) {
@@ -65,46 +65,46 @@ Set-ItemProperty -Path $RegistryPath -Name $Name3 -Value $Value3
 Set-ItemProperty -Path $RegistryPath -Name $Name4 -Value $Value4
 
 # 指定锁屏背景图片的路径
-$lockScreenImagePath = "./static/background.jpg"
+# $lockScreenImagePath = "./static/background.jpg"
 
 # 指定桌面背景图片的路径
-$wallpaperPath = "./static/background.jpg"
+# $wallpaperPath = "./static/background.jpg"
 
 # 设置锁屏背景的注册表项
-$RegistryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization"
-$Name = "LockScreenImage"
-$Value = $lockScreenImagePath
+# $RegistryPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PersonalizationCSP"
+# $Name = "LockScreenImage"
+# $Value = $lockScreenImagePath
 
-if (-not (Test-Path $RegistryPath)) {
-    New-Item -Path $RegistryPath -Force
-}
-Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
+# if (-not (Test-Path $RegistryPath)) {
+#     New-Item -Path $RegistryPath -Force
+# }
+# Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
 
 # 禁用“Windows 聚焦”功能，确保使用固定背景
-$RegistryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
-$Name = "RotatingLockScreenEnabled"
-$Value = 0
+# $RegistryPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager"
+# $Name = "RotatingLockScreenEnabled"
+# $Value = 0
 
-if (Test-Path $RegistryPath) {
-    Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
-} else {
-    New-Item -Path $RegistryPath -Force | Set-ItemProperty -Name $Name -Value $Value
-}
+# if (Test-Path $RegistryPath) {
+#     Set-ItemProperty -Path $RegistryPath -Name $Name -Value $Value
+# } else {
+#     New-Item -Path $RegistryPath -Force | Set-ItemProperty -Name $Name -Value $Value
+# }
 
 # 设置桌面背景
-$code = @"
-using System.Runtime.InteropServices;
-public class Wallpaper {
-    [DllImport("user32.dll", CharSet = CharSet.Auto)]
-    public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
-}
-"@
+# $code = @"
+# using System.Runtime.InteropServices;
+# public class Wallpaper {
+#     [DllImport("user32.dll", CharSet = CharSet.Auto)]
+#     public static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
+# }
+# "@
 
 # 编译 C# 代码以调用 Windows API 更改壁纸
-Add-Type -TypeDefinition $code
+# Add-Type -TypeDefinition $code
 
 # SPI_SETDESKWALLPAPER = 20, SPIF_UPDATEINIFILE = 0x01, SPIF_SENDWININICHANGE = 0x02
-[Wallpaper]::SystemParametersInfo(20, 0, $wallpaperPath, 0x01 -bor 0x02)
+# [Wallpaper]::SystemParametersInfo(20, 0, $wallpaperPath, 0x01 -bor 0x02)
 
 # 通知资源管理器重新加载设置
 Stop-Process -Name explorer -Force
