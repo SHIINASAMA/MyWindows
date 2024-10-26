@@ -39,8 +39,8 @@ winget install `
     Tencent.QQ.NT `
     Tencent.WeChat `
     Tencent.TencentMeeting `
-    Tencent.DeskGo `
     WiresharkFoundation.Wireshark `
+    JanDeDobbeleer.OhMyPosh `
     DimitriVanHeesch.Doxygen `
     Kitware.CMake `
     GitHub.cli `

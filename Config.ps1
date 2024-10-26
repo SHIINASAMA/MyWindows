@@ -1,5 +1,4 @@
-winget install starship
-Write-Output "`nInvoke-Expression (&starship init powershell)" >> $PROFILE
+Write-Output "`noh-my-posh init pwsh --config `"$env:POSH_THEMES_PATH\ys.omp.json`" | Invoke-Expression" >> $PROFILE
 
 $LangList = New-WinUserLanguageList en-US
 $LangList.Add("zh-Hans-CN")
