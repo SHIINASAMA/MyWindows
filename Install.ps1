@@ -49,7 +49,8 @@ winget install `
     Microsoft.PowerShell `
     Microsoft.VisualStudioCode `
     DEVCOM.JetBrainsMonoNerdFont `
-    AntibodySoftware.WizTree
+    AntibodySoftware.WizTree `
+    GNU.Nano
 
 Write-Information "Installing vcpkg..."
 
