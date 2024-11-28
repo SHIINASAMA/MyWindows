@@ -14,4 +14,4 @@ winget remove `
     "Windows Web Experience Pack"
 
 # remove edge exclude webview2
-./bin/Remove-MS-Edge/Remove-Edge.exe /e
+./bin/Remove-Edge.exe /e
