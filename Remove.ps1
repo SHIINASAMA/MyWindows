@@ -13,8 +13,5 @@ winget remove `
     "微软电脑管家" "PC Manager" `
     "Windows Web Experience Pack"
 
-if ((Test-Path -Path "./Remove-MS-Edge") -eq $false) {
-    git clone https://github.com/ShadowWhisperer/Remove-MS-Edge.git
-}
 # remove edge exclude webview2
-./Remove-MS-Edge/Remove-Edge.exe /e
+./bin/Remove-MS-Edge/Remove-Edge.exe /e
