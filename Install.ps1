@@ -26,25 +26,28 @@ winget install `
     ClashVergeRev.ClashVergeRev `
     CoreyButler.NVMforWindows `
     7zip.7zip `
+    ebkr.r2modman `
     Microsoft.VisualStudio.2022.BuildTools `
     Git.Git `
     Google.Chrome `
+    Rustlang.Rustup `
     Hex-Rays.IDA.Free `
     OBSProject.OBSStudio `
     Daum.PotPlayer `
     Docker.DockerDesktop `
     Ninja-build.Ninja `
+    NetEase.CloudMusic `
     Valve.Steam `
     JetBrains.Toolbox `
-    Tencent.QQ.NT `
     Tencent.WeChat `
+    Tencent.TIM `
     Tencent.TencentMeeting `
     WiresharkFoundation.Wireshark `
     JanDeDobbeleer.OhMyPosh `
     DimitriVanHeesch.Doxygen `
     Kitware.CMake `
     GitHub.cli `
-    Oracle.JDK.17 `
+    Oracle.JDK.21 `
     Microsoft.PowerToys `
     Microsoft.PowerShell `
     Microsoft.VisualStudioCode `
