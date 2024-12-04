@@ -48,6 +48,7 @@ winget install `
     Kitware.CMake `
     GitHub.cli `
     Oracle.JDK.21 `
+    Python.Python.3.13 `
     Microsoft.PowerToys `
     Microsoft.PowerShell `
     Microsoft.VisualStudioCode `
