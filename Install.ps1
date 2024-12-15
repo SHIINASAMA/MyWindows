@@ -25,7 +25,7 @@ winget install `
     agalwood.Motrix `
     ClashVergeRev.ClashVergeRev `
     CoreyButler.NVMforWindows `
-    7zip.7zip `
+    M2Team.NanaZip `
     ebkr.r2modman `
     Microsoft.VisualStudio.2022.BuildTools `
     Git.Git `
@@ -37,6 +37,7 @@ winget install `
     Docker.DockerDesktop `
     Ninja-build.Ninja `
     NetEase.CloudMusic `
+    Spotify.Spotify `
     Valve.Steam `
     JetBrains.Toolbox `
     Tencent.WeChat `
