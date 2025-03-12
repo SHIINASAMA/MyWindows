@@ -45,6 +45,7 @@ winget install `
     Tencent.DeskGo `
     Tencent.TencentMeeting `
     WiresharkFoundation.Wireshark `
+    RARLab.WinRAR `
     JanDeDobbeleer.OhMyPosh `
     DimitriVanHeesch.Doxygen `
     Kitware.CMake `
