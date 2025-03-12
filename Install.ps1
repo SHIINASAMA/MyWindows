@@ -42,6 +42,7 @@ winget install `
     JetBrains.Toolbox `
     Tencent.WeChat `
     Tencent.TIM `
+    Tencent.DeskGo `
     Tencent.TencentMeeting `
     WiresharkFoundation.Wireshark `
     JanDeDobbeleer.OhMyPosh `
